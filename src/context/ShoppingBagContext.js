@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React from 'react';
 
 // first we need to createContext
-export const ShoppingCartContext = React.createContext({});
+export const ShoppingBagContext = React.createContext({});
