@@ -21,6 +21,8 @@ function Home() {
       removeFromBag
    } = useContext(ShoppingBagContext)
 
+   console.log("productsInBag from Home.js")
+   console.log(productsInBag)
    return (
       <div>
          {productList.map((product) => {

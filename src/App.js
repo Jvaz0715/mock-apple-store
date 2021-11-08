@@ -41,7 +41,10 @@ function addNewItem(product){
 }
 
 function App() {
-  const [productsInBag, dispatch] = useReducer(reducer, []); //this will populate as we add items to our bag
+  const bagInLocalStorage = window.localStorage.getItem("shoppingBag")
+  // check if we already have products in the shopping bag if not set it to empty array
+  const initialShoppingBag = bagInLocalStorage ? JSON.parse(bagInLocalStorage) : [];
+  const [productsInBag, dispatch] = useReducer(reducer, initialShoppingBag); //this will populate as we add items to our bag
   const [productList, setProductList] = useState([]);
 
   useEffect(() => {
@@ -49,7 +52,9 @@ function App() {
       .then((products) =>{
         setProductList(products)
       })
-  }, [])
+    
+    window.localStorage.setItem('shoppingBag', JSON.stringify(productsInBag))
+  }, [productsInBag])
 
   // we will pass down this function to the home page so when we add to bag, we update the productsInBag data
   const addToBag = (product) =>{
@@ -67,8 +72,8 @@ function App() {
     removeFromBag,
   };
 
-  // console.log("productsInBag from App")
-  // console.log(productsInBag)
+  console.log("productsInBag from App")
+  console.log(productsInBag)
 
   return (
     <ShoppingBagContext.Provider value={shoppingBagProviderValue}>
