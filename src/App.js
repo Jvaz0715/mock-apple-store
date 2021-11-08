@@ -72,9 +72,6 @@ function App() {
     removeFromBag,
   };
 
-  console.log("productsInBag from App")
-  console.log(productsInBag)
-
   return (
     <ShoppingBagContext.Provider value={shoppingBagProviderValue}>
       <Router>

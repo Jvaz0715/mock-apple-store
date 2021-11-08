@@ -16,9 +16,11 @@ import {ShoppingBagContext} from "../context/ShoppingBagContext"
 function Home() {
    const {
       productList,
+      productsInBag,
       addToBag,
    } = useContext(ShoppingBagContext)
 
+   console.log(productsInBag)
    return (
       <div>
          {productList.map((product) => {

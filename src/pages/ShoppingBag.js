@@ -8,9 +8,7 @@ function ShoppingBag() {
       removeFromBag
    } = useContext(ShoppingBagContext);
 
-   const shoppingBagProducts = JSON.parse(window.localStorage.getItem("shoppingBag"))
-   console.log("shoppingBagProducts")
-   console.log(shoppingBagProducts)
+   console.log(productsInBag)
    return (
       <div>
          <hr />
@@ -21,7 +19,6 @@ function ShoppingBag() {
                   <button
                      onClick={() => {
                         removeFromBag(product)
-                        console.log(productsInBag)
                      }}
                   >
                      REMOVE FROM BAG
