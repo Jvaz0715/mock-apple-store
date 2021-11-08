@@ -16,13 +16,9 @@ import {ShoppingBagContext} from "../context/ShoppingBagContext"
 function Home() {
    const {
       productList,
-      productsInBag,
       addToBag,
-      removeFromBag
    } = useContext(ShoppingBagContext)
 
-   console.log("productsInBag from Home.js")
-   console.log(productsInBag)
    return (
       <div>
          {productList.map((product) => {
@@ -32,28 +28,9 @@ function Home() {
                   <button 
                      onClick={() => {
                         addToBag(product);
-                        console.log(productsInBag)
                      }}
                   >
                      ADD TO BAG
-                  </button>
-               </div>
-            )
-         })}
-         <br />
-         <hr />
-         <br />
-         {productsInBag.map((product)=>{
-            return (
-               <div key={product.id}>
-                  <span>{product.title}</span>
-                  <button
-                     onClick={() => {
-                        removeFromBag(product)
-                        console.log(productsInBag)
-                     }}
-                  >
-                     REMOVE FROM BAG
                   </button>
                </div>
             )
