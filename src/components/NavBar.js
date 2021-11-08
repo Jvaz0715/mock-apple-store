@@ -35,7 +35,7 @@ function NavBar() {
                      justifyContent:"end"
                   }}
                >
-                  <IconButton size="Large" style={{color: "white"}} edge="end" aria-label="menu">
+                  <IconButton size="medium" style={{color: "white"}} edge="end" aria-label="menu">
                      <LocalMallSharpIcon style={{fontSize:"50px"}} position="end"/>
                   </IconButton>
                </Link>
