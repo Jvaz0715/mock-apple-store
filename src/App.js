@@ -18,8 +18,14 @@ export const ACTIONS = {
 };
 
 function reducer(productsInBag, action) {
+  // the add to bag needs to account for multiple selections
+  // todo, add products that are same into same object
   if(action.type === ACTIONS.ADD_TO_BAG) {
     return [...productsInBag, {...action.payload}]
+  }
+
+  if(action.type === ACTIONS.DELETE_FROM_BAG) {
+    return [productsInBag.filter(product => product.id === action.payload.id)];
   }
 };
 
@@ -42,11 +48,19 @@ function App() {
     dispatch({type: ACTIONS.ADD_TO_BAG, payload: product})
   }
 
+  const removeFromBag = (id) => {
+    dispatch({type: ACTIONS.DELETE_FROM_BAG, payload: id})
+  }
+
   const shoppingBagProviderValue = {
     productList,
     productsInBag,
-    addToBag
+    addToBag,
+    removeFromBag,
   };
+
+  // console.log("productsInBag from App")
+  // console.log(productsInBag)
 
   return (
     <ShoppingBagContext.Provider value={shoppingBagProviderValue}>
