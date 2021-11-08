@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useReducer} from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { v4 as uuidv4 } from 'uuid';
 
 import { ShoppingBagContext } from "./context/ShoppingBagContext"; //brings in the Shopping Bag Context we created
 import { fetchProducts } from "./ProductsData"; //brings in our mock data
@@ -21,16 +22,23 @@ function reducer(productsInBag, action) {
   // the add to bag needs to account for multiple selections
   // todo, add products that are same into same object
   if(action.type === ACTIONS.ADD_TO_BAG) {
-    return [...productsInBag, {...action.payload}]
+    return [...productsInBag, addNewItem(action.payload)]
   }
 
   if(action.type === ACTIONS.DELETE_FROM_BAG) {
-    return [productsInBag.filter(product => product.id === action.payload.id)];
+    return productsInBag.filter(product => product.id !== action.payload.id);
   }
 };
 
 // create a function that will return the item's image, name, and price in an object
-
+function addNewItem(product){
+  return {
+    id: uuidv4(), //we give the product an individual title
+    title: product.title,
+    price: product.price,
+    img: product.img,
+  }
+}
 
 function App() {
   const [productsInBag, dispatch] = useReducer(reducer, []); //this will populate as we add items to our bag
@@ -48,8 +56,8 @@ function App() {
     dispatch({type: ACTIONS.ADD_TO_BAG, payload: product})
   }
 
-  const removeFromBag = (id) => {
-    dispatch({type: ACTIONS.DELETE_FROM_BAG, payload: id})
+  const removeFromBag = (product) => {
+    dispatch({type: ACTIONS.DELETE_FROM_BAG, payload: product})
   }
 
   const shoppingBagProviderValue = {

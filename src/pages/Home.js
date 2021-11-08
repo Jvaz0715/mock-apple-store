@@ -18,11 +18,9 @@ function Home() {
       productList,
       productsInBag,
       addToBag,
-      removeFromBag,
+      removeFromBag
    } = useContext(ShoppingBagContext)
 
-   console.log("productsInBag from Home")
-   console.log(productsInBag)
    return (
       <div>
          {productList.map((product) => {
@@ -40,23 +38,24 @@ function Home() {
                </div>
             )
          })}
-         {/* {<ul>
-            {productsInBag.map((product) => {
-               return (
-               <li key={product.id}>
+         <br />
+         <hr />
+         <br />
+         {productsInBag.map((product)=>{
+            return (
+               <div key={product.id}>
                   <span>{product.title}</span>
                   <button
-                     onClick={() =>{
-                        removeFromBag(product.id)
+                     onClick={() => {
+                        removeFromBag(product)
                         console.log(productsInBag)
                      }}
                   >
                      REMOVE FROM BAG
                   </button>
-               </li>
-               )
-            })}
-         </ul>} */}
+               </div>
+            )
+         })}
       </div>
    )
 }
