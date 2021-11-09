@@ -30,6 +30,9 @@ function reducer(productsInBag, action) {
     return productsInBag.filter(product => product.id !== action.payload.id);
   }
 
+  if(action.type === ACTIONS.EMPTY_BAG) {
+    return productsInBag = [];
+  }
 };
 
 // create a function that will return the item's image, name, and price in an object
@@ -67,11 +70,16 @@ function App() {
     dispatch({type: ACTIONS.DELETE_FROM_BAG, payload: product})
   };
 
+  const emptyBag = (productsInBag) => {
+    dispatch({type: ACTIONS.EMPTY_BAG, payload: productsInBag})
+  }
+
   const shoppingBagProviderValue = {
     productList,
     productsInBag,
     addToBag,
     removeFromBag,
+    emptyBag,
   };
 
   return (

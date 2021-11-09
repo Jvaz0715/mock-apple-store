@@ -8,26 +8,24 @@ function ShoppingBag() {
    const {
       productsInBag,
       removeFromBag,
+      emptyBag
    } = useContext(ShoppingBagContext);
 
    const totalBagPrice = (arr) => {
       let totalPrice  = 0;
       arr.map((item => {
          totalPrice = totalPrice + item.price;
-         return totalPrice
-      }))
-
+         return totalPrice;
+      }));
+      
       return totalPrice/100;
    };
 
-   console.log(totalBagPrice(productsInBag))
-
-   console.log(productsInBag)
    return (
       <div>
          <hr />
          <Stack>
-         {productsInBag.map((product)=>{
+         {productsInBag && productsInBag.map((product)=>{
             return (
                <div key={product.id}>
                   <img src={product.img} alt={product.title} width="auto" height="50px"/>
@@ -50,14 +48,31 @@ function ShoppingBag() {
          <hr />
          <div style={{display:"flex", flexDirection:"column", alignItems:"end", marginRight:"20px"}}>
             <span style={{ marginBottom:"10px"}}>
-               Total: {productsInBag.length > 0 ? totalBagPrice(productsInBag) : `$0.00`}
+               Total: {productsInBag.length > 0 ? `$${totalBagPrice(productsInBag)}` : `$0.00`}
             </span>
-            <Button 
-               size="medium"
-               variant="contained"
-            >
-               Checkout
-            </Button>
+            <div>
+               <Button 
+                  size="medium"
+                  variant="contained"
+                  style={{
+                     marginRight:"5px" 
+                  }}
+                  
+               >
+                  Checkout
+               </Button>
+               <Button 
+                  size="medium"
+                  variant="outlined"
+                  onClick={()=> {
+                     emptyBag()
+                  }}
+               >
+                  Clear Bag
+               </Button>
+
+            </div>
+            
          </div>
       </div>
    )
