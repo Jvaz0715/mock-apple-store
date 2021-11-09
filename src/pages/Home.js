@@ -13,6 +13,7 @@ function Home() {
     productList,
     // productsInBag,
     addToBag,
+    removeFromBag,
   } = useContext(ShoppingBagContext);
   console.log("productList");
   console.log(productList);
@@ -57,6 +58,18 @@ function Home() {
                 variant="contained"
               >
                 ADD TO BAG
+              </Button>
+            </CardActions>
+
+            <CardActions>
+              <Button
+                size="medium"
+                onClick={() => {
+                  removeFromBag(product);
+                }}
+                variant="contained"
+              >
+                UNDO
               </Button>
             </CardActions>
           </Card>

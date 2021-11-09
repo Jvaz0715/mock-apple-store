@@ -20,16 +20,19 @@ function NavBar() {
             display: "flex",
           }}
         >
-          <MenuIcon />
-          <Link to="/" style={{ width: "33%" }}></Link>
+          <Link to="/" style={{ width: "33%" }}>
+            <MenuIcon sx={{ color: "white" }} />
+          </Link>
           <Typography style={{ textAlign: "center", width: "33%" }}>
-            <AppleIcon
-              sx={{
-                color: "white",
-                justifyContent: "center",
-                fontSize: "25px",
-              }}
-            />
+            <Link to="/" style={{ width: "33%" }}>
+              <AppleIcon
+                sx={{
+                  color: "white",
+                  justifyContent: "center",
+                  fontSize: "25px",
+                }}
+              />
+            </Link>
           </Typography>
           <Link
             to="/bag"
