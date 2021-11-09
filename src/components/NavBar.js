@@ -1,48 +1,57 @@
-import React from 'react';
+import React from "react";
 import { Box, AppBar, Toolbar, IconButton } from "@material-ui/core";
-import LocalMallSharpIcon from '@mui/icons-material/LocalMallSharp';
+import LocalMallSharpIcon from "@mui/icons-material/LocalMallSharp";
 import { Link } from "react-router-dom";
-import { Typography } from '@mui/material';
+import { Typography } from "@mui/material";
+import AppleIcon from "@mui/icons-material/Apple";
+import MenuIcon from "@mui/icons-material/Menu";
 
 function NavBar() {
-   return (
-      <Box>
-         <AppBar 
-            position="static"
+  return (
+    <Box>
+      <AppBar
+        position="static"
+        style={{
+          background: "#3A3A3A",
+        }}
+      >
+        <Toolbar
+          style={{
+            display: "flex",
+          }}
+        >
+          <MenuIcon />
+          <Link to="/" style={{ width: "33%" }}></Link>
+          <Typography style={{ textAlign: "center", width: "33%" }}>
+            <AppleIcon
+              sx={{
+                color: "white",
+                justifyContent: "center",
+                fontSize: "25px",
+              }}
+            />
+          </Typography>
+          <Link
+            to="/bag"
             style={{
-               background:"black"
+              width: "33%",
+              display: "flex",
+              justifyContent: "end",
             }}
-         >
-            <Toolbar
-               style={{
-                  display: "flex",
-               }}
+          >
+            <IconButton
+              size="medium"
+              style={{ color: "white" }}
+              edge="end"
+              aria-label="menu"
             >
-               <Link to="/" style={{width: "33%"}}>
-                  <img 
-                     src="https://www.freepnglogos.com/uploads/apple-logo-png/apple-logo-png-what-you-need-know-before-rebranding-11.png"
-                     alt="apple logo"
-                     width="100px"
-                     height="100px"
-                  />
-               </Link>
-               <Typography style={{textAlign:"center", width: "33%"}}>Apple Store</Typography>
-               <Link 
-                  to="/bag" 
-                  style={{
-                     width: "33%",
-                     display: "flex",
-                     justifyContent:"end"
-                  }}
-               >
-                  <IconButton size="medium" style={{color: "white"}} edge="end" aria-label="menu">
-                     <LocalMallSharpIcon style={{fontSize:"50px"}} position="end"/>
-                  </IconButton>
-               </Link>
-            </Toolbar>
-         </AppBar>
-      </Box>
-   )
+              <LocalMallSharpIcon style={{ fontSize: "20px" }} position="end" />
+            </IconButton>
+          </Link>
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
 }
 
 export default NavBar;
