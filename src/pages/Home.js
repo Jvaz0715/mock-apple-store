@@ -6,20 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-
-
-import {ShoppingBagContext} from "../context/ShoppingBagContext"
-/*
-
-   James: We can use this file to create how we want our products to display.
-
-   TODO: Design cards for products that includes:
-      -image
-      -name
-      -price
-      -description
-      -add to bag button
-*/
+import {ShoppingBagContext} from "../context/ShoppingBagContext";
 
 function Home() {
    const {
