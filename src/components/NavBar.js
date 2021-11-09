@@ -1,10 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { ShoppingBagContext } from '../context/ShoppingBagContext';
 import { Box, AppBar, Toolbar, IconButton } from "@material-ui/core";
 import LocalMallSharpIcon from '@mui/icons-material/LocalMallSharp';
 import { Link } from "react-router-dom";
 import { Typography } from '@mui/material';
 
 function NavBar() {
+   const {
+      productsInBag
+   } = useContext(ShoppingBagContext);
+
    return (
       <Box>
          <AppBar 
@@ -34,11 +39,15 @@ function NavBar() {
                   style={{
                      width: "33%",
                      display: "flex",
-                     justifyContent:"end"
+                     justifyContent:"end",
+                     textDecoration: "none"
                   }}
-               >
+               >  
                   <IconButton size="medium" style={{color: "white"}} edge="end" aria-label="menu">
                      <LocalMallSharpIcon style={{fontSize:"50px"}} position="end"/>
+                     <Typography style={{display:"flex", justifyContent:"end" , alignItems:"end", marginRight:"-5px"}}>
+                        {productsInBag.length > 0 && productsInBag.length}
+                     </Typography>
                   </IconButton>
                </Link>
             </Toolbar>
