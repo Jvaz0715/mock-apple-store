@@ -15,6 +15,7 @@ function ShoppingBag() {
          {productsInBag.map((product)=>{
             return (
                <div key={product.id}>
+                  <img src={product.img} alt={product.title} height="100px"/>
                   <span>{product.title}</span>
                   <button
                      onClick={() => {

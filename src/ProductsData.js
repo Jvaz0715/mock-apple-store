@@ -10,7 +10,7 @@ const productList = [
       description: 'A dramatically more powerful camera system. A display so responsive, every interaction feels new again. The world’s fastest smartphone chip. Exceptional durability. And a huge leap in battery life.',
       brand: 'Apple',
       price: 109999,
-      img: "https://www.apple.com/v/iphone-13-pro/c/images/overview/design/design_display_pro_max__bv0sb70j43jm_large_2x.png",
+      img: "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone13_colors_09142021_big.jpg.large.jpg",
    },
    {
       id: uuidv4(),
