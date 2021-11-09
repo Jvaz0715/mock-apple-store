@@ -1,4 +1,5 @@
 import React, {useContext} from 'react';
+import Stack from '@mui/material/Stack';
 
 import {ShoppingBagContext} from "../context/ShoppingBagContext"
 
@@ -24,10 +25,11 @@ function ShoppingBag() {
    return (
       <div>
          <hr />
+         <Stack>
          {productsInBag.map((product)=>{
             return (
                <div key={product.id}>
-                  <img src={product.img} alt={product.title} height="100px"/>
+                  <img src={product.img} alt={product.title} width="auto" height="100px"/>
                   <span>{product.title}</span>
                   <button
                      onClick={() => {
@@ -39,6 +41,7 @@ function ShoppingBag() {
                </div>
             )
          })}
+         </Stack>
          <hr />
          <div>
             {totalBagPrice(productsInBag)}

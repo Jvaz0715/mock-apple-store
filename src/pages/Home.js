@@ -20,16 +20,6 @@ function Home() {
       <div style={{display:"flex", flexDirection: "column", alignItems:"center",marginTop:"50px"}}>
          {productList.map((product) => {
             return (
-               // <div key={product.id}>
-               //    <span>{product.title}</span>
-               //    <button 
-               //       onClick={() => {
-               //          addToBag(product);
-               //       }}
-               //    >
-               //       ADD TO BAG
-               //    </button>
-               // </div>
                <Card key={product.id} sx={{ maxWidth: 345 }} style={{marginBottom:"30px"}}>
                   <CardMedia
                      component="img"
