@@ -8,6 +8,18 @@ function ShoppingBag() {
       removeFromBag
    } = useContext(ShoppingBagContext);
 
+   const totalBagPrice = (arr) => {
+      let totalPrice  = 0;
+      arr.map((item => {
+         totalPrice = totalPrice + item.price;
+         return totalPrice
+      }))
+
+      return totalPrice/100;
+   }
+
+   console.log(totalBagPrice(productsInBag))
+
    console.log(productsInBag)
    return (
       <div>
@@ -28,6 +40,9 @@ function ShoppingBag() {
             )
          })}
          <hr />
+         <div>
+            {totalBagPrice(productsInBag)}
+         </div>
       </div>
    )
 }
