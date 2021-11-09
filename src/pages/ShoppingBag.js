@@ -20,7 +20,6 @@ function ShoppingBag() {
       
       return totalPrice/100;
    };
-
    return (
       <div>
          <hr />

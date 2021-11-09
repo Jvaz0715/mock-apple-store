@@ -51,7 +51,6 @@ function App() {
   const initialShoppingBag = bagInLocalStorage ? JSON.parse(bagInLocalStorage) : [];
 
   //===================
-
   const [productsInBag, dispatch] = useReducer(reducer, initialShoppingBag); //this will populate as we add items to our bag
   const [productList, setProductList] = useState([]);
 
@@ -91,6 +90,9 @@ function App() {
     <ShoppingBagContext.Provider value={shoppingBagProviderValue}>
       <Router>
         <NavBar />
+        {/* latest update for react-router-dom does NOT use switch
+          it now uses Routes
+        */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/bag" element={<ShoppingBag />} />
