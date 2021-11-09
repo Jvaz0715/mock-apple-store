@@ -1,4 +1,5 @@
 import React, {useContext} from 'react';
+import { Link } from "react-router-dom";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -21,7 +22,7 @@ function Home() {
       <div style={{display:"flex", flexDirection: "column", alignItems:"center",marginTop:"50px"}}>
          {productList.map((product) => {
             return (
-               <Card key={product.id} sx={{ maxWidth: 345 }} style={{marginBottom:"30px"}}>
+               <Card key={product.id} sx={{ maxWidth: 360 }} style={{marginBottom:"30px"}}>
                   <CardMedia
                      component="img"
                      height="25%"
@@ -33,7 +34,7 @@ function Home() {
                         {product.title}
                      </Typography>
                      <Typography>
-                        $ {product.price / 100}
+                        {`$${product.price / 100}`}
                      </Typography>
                      <Typography variant="body2" color="text.secondary">
                         {product.description}
@@ -46,7 +47,18 @@ function Home() {
                            addToBag(product)
                         }}
                         variant="contained"
-                     >ADD TO BAG</Button>
+                        style={{marginRight:"10px"}}
+                     >
+                        ADD TO BAG
+                     </Button>
+                     <Link to="/bag" style={{textDecoration:"none"}}>
+                        <Button 
+                           size="medium" 
+                           variant="outlined"
+                        >
+                           SEE BAG
+                        </Button>
+                     </Link>
                   </CardActions>
                </Card>
             )

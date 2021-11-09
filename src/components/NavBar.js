@@ -22,11 +22,13 @@ function NavBar() {
                   <img 
                      src="https://www.freepnglogos.com/uploads/apple-logo-png/apple-logo-png-what-you-need-know-before-rebranding-11.png"
                      alt="apple logo"
-                     width="100px"
-                     height="100px"
+                     width="70px"
+                     height="70px"
                   />
                </Link>
-               <Typography style={{textAlign:"center", width: "33%"}}>Apple Store</Typography>
+               <Typography style={{textAlign:"center", width: "33%"}}>
+                  Apple Store
+               </Typography>
                <Link 
                   to="/bag" 
                   style={{

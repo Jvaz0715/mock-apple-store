@@ -49,14 +49,19 @@ function App() {
   const bagInLocalStorage = window.localStorage.getItem("shoppingBag")
   // check if we already have products in the shopping bag if not set it to empty array
   const initialShoppingBag = bagInLocalStorage ? JSON.parse(bagInLocalStorage) : [];
+
+  //===================
+
   const [productsInBag, dispatch] = useReducer(reducer, initialShoppingBag); //this will populate as we add items to our bag
   const [productList, setProductList] = useState([]);
+
+  //===================
 
   useEffect(() => {
     fetchProducts()
       .then((products) =>{
         setProductList(products)
-      })
+      });
     
     window.localStorage.setItem('shoppingBag', JSON.stringify(productsInBag))
   }, [productsInBag]);
