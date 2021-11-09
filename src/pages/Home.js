@@ -54,6 +54,9 @@ function Home() {
                      <Typography gutterBottom variant="h5" component="div">
                         {product.title}
                      </Typography>
+                     <Typography>
+                        $ {product.price / 100}
+                     </Typography>
                      <Typography variant="body2" color="text.secondary">
                         {product.description}
                      </Typography>
