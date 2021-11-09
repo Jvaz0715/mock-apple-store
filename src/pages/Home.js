@@ -43,7 +43,7 @@ function Home() {
                //       ADD TO BAG
                //    </button>
                // </div>
-               <Card sx={{ maxWidth: 345 }}>
+               <Card key={product.id} sx={{ maxWidth: 345 }} style={{marginBottom:"30px"}}>
                   <CardMedia
                      component="img"
                      height="25%"
@@ -59,8 +59,9 @@ function Home() {
                      </Typography>
                   </CardContent>
                   <CardActions>
-                     <Button size="small">Share</Button>
-                     <Button size="small">Learn More</Button>
+                     <Button size="small" onClick={() => {
+                        addToBag(product)
+                     }}>ADD TO BAG</Button>
                   </CardActions>
                </Card>
             )
