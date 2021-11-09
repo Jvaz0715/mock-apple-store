@@ -16,6 +16,7 @@ export const ACTIONS = {
   ADD_TO_BAG: "add-to-bag",
   DELETE_FROM_BAG: "delete-from-bag",
   EMPTY_BAG: "empty-bag",
+  TOTAL_BAG_COST: "total-bag-cost",
 };
 
 function reducer(productsInBag, action) {
@@ -28,6 +29,7 @@ function reducer(productsInBag, action) {
   if(action.type === ACTIONS.DELETE_FROM_BAG) {
     return productsInBag.filter(product => product.id !== action.payload.id);
   }
+
 };
 
 // create a function that will return the item's image, name, and price in an object
@@ -54,16 +56,16 @@ function App() {
       })
     
     window.localStorage.setItem('shoppingBag', JSON.stringify(productsInBag))
-  }, [productsInBag])
+  }, [productsInBag]);
 
   // we will pass down this function to the home page so when we add to bag, we update the productsInBag data
   const addToBag = (product) =>{
     dispatch({type: ACTIONS.ADD_TO_BAG, payload: product})
-  }
+  };
 
   const removeFromBag = (product) => {
     dispatch({type: ACTIONS.DELETE_FROM_BAG, payload: product})
-  }
+  };
 
   const shoppingBagProviderValue = {
     productList,

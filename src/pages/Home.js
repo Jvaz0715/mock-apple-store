@@ -39,9 +39,13 @@ function Home() {
                      </Typography>
                   </CardContent>
                   <CardActions>
-                     <Button size="small" onClick={() => {
-                        addToBag(product)
-                     }}>ADD TO BAG</Button>
+                     <Button 
+                        size="medium" 
+                        onClick={() => {
+                           addToBag(product)
+                        }}
+                        variant="contained"
+                     >ADD TO BAG</Button>
                   </CardActions>
                </Card>
             )
