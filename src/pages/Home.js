@@ -14,7 +14,8 @@ function Home() {
       // productsInBag,
       addToBag,
    } = useContext(ShoppingBagContext)
-
+   console.log("productList")
+   console.log(productList)
    // console.log(productsInBag)
    return (
       <div style={{display:"flex", flexDirection: "column", alignItems:"center",marginTop:"50px"}}>
