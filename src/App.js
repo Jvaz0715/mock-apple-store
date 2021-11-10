@@ -16,7 +16,6 @@ export const ACTIONS = {
   ADD_TO_BAG: "add-to-bag",
   DELETE_FROM_BAG: "delete-from-bag",
   EMPTY_BAG: "empty-bag",
-  TOTAL_BAG_COST: "total-bag-cost",
 };
 
 function reducer(productsInBag, action) {
