@@ -1,4 +1,8 @@
 import React, {useContext} from 'react';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -21,14 +25,30 @@ function ShoppingBag() {
       return totalPrice/100;
    };
    return (
-      <div>
+      <div 
+         style={{
+            display:"flex",
+            flexDirection:"column",
+            justifyContent: "center"
+         }}
+      >
          <hr />
          <Stack>
          {productsInBag && productsInBag.map((product)=>{
             return (
-               <div key={product.id}>
+               <Card 
+                  key={product.id} 
+                  sx={{maxWidth: 500}}
+                  style={{
+                     marginBottom:"30px",
+                     display:"flex",
+                     alignItems: "center",
+                     justifyContent:"space-evenly"
+                  }}
+               >
                   <img src={product.img} alt={product.title} width="auto" height="50px"/>
-                  <span>{product.title}</span>
+                  <h4 style={{marginLeft:"5px"}}>{product.title}</h4>
+                  <span style={{marginLeft:"5px"}}>{`$${product.price/100}`}</span>
                   <Button
                      variant="contained"
                      size="small"
@@ -37,10 +57,11 @@ function ShoppingBag() {
                      onClick={() => {
                         removeFromBag(product)
                      }}
+                     style={{marginLeft:"5px"}}
                   >
                      Delete
                   </Button>
-               </div>
+               </Card>
             )
          })}
          </Stack>
